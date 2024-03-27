@@ -32,29 +32,6 @@
           justify-content: center;
       }
     </style>
-    <script>
-        $(document).ready(function () {
-            save_contact();
-        });
-        function save_contact(){
-            let name = $('#name').val();
-            let email = $('#email').val();
-            let pesan = $('#pesan').val();
-            $.ajax({
-                type: "POST",
-                url: "/contact",
-                data: {
-                    name_give: name,
-                    email_give:email,
-                    pesan_give: pesan,
-                },
-                success: function (response) {
-                    alert(response["msg"]);
-                    window.location.reload();
-                }
-            });
-        }
-    </script>
 </head>
 
 <body id="home">

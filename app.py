@@ -19,18 +19,5 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
-@app.route("/#contact", methods=["POST"])
-def contactme_post():
-    name_receive = request.form['name_give']
-    email_receive = request.form['email_give']
-    pesan_receive = request.form['pesan_give']
-    doc = {
-        'Nama Lengkap' : name_receive,
-        'Email' : email_receive,
-        'Pesan' : pesan_receive
-    }
-    db.contact.insert_one(doc)
-    return jsonify({'msg': 'Data Saved!'})
-
 if __name__ == '__main__':
-    app.run(port=5000, debug=True)
+    app.run('0.0.0.0', port=5000, debug=True)
